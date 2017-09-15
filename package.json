@@ -1,0 +1,13 @@
+{
+  "name": "four-dimensional-pie-chart",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "start": "http-server"
+  },
+  "dependencies": {
+    "d3": "3.5.17",
+    "http-server": "^0.10.0"
+  }
+}
