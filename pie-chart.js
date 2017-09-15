@@ -45,15 +45,15 @@ const pie = d3.layout.pie()
   .sort((a, b) => a.order - b.order)
   .value(d => d.radians);
 
+const pieData = pie(sections);
+console.log("[pieData]", pieData);
+
 const arc = d3.svg.arc()
   .outerRadius(d => radius * (d.data.level / 100.0))
   .startAngle(d => d.startAngle - startAngle)
   .endAngle(d => d.endAngle - startAngle);
 
-const pieData = pie(sections);
-console.log("[pieData]", pieData);
-
-const path = svg.selectAll(".solidArc")
+const arcs = svg.selectAll(".solidArc")
   .data(pieData)
   .enter()
   .append("path")
@@ -62,7 +62,7 @@ const path = svg.selectAll(".solidArc")
   .attr("stroke", "gray")
   .attr("d", arc);
 
-[0,1,2,3].forEach(n => {
+[0, 1, 2, 3].forEach(n => {
   const newOuterRadius = radius - (n * (radius / 4));
   const outlineArc = d3.svg.arc()
     .outerRadius(newOuterRadius)
